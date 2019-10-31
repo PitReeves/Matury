@@ -22,7 +22,6 @@ int main()
                 ile++;
         }
     }
-    cout<<ile;
     wypisz<<"Zadanie 4.1:"<<endl<<ile<<endl;
     return 0;
 }
