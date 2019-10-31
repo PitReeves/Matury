@@ -17,13 +17,12 @@ int main()
             while(tmp>3&&tmp%3==0)
             {
                 tmp=tmp/3;
-                if(tmp==3)
-                {
-                    ile++;
-                }
             }
+            if(tmp==3)
+                ile++;
         }
     }
-    wypisz<<"Zadanie 4.1: "<<endl<<ile<<endl;
+    cout<<ile;
+    wypisz<<"Zadanie 4.1:"<<endl<<ile<<endl;
     return 0;
 }
