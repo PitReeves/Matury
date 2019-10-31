@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+int main()
+{
+    int liczba,ile=0,tmp;
+    ifstream wczytaj("liczby.txt");
+    ofstream wypisz("wyniki4.txt");
+    for(int i=0; i<500; i++)
+    {
+        wczytaj>>liczba;
+        if(liczba==1)
+            ile++;
+        if(liczba%3==0)
+        {
+            tmp=liczba;
+            while(tmp>3&&tmp%3==0)
+            {
+                tmp=tmp/3;
+                if(tmp==3)
+                {
+                    ile++;
+                }
+            }
+        }
+    }
+    wypisz<<"Zadanie 4.1: "<<endl<<ile<<endl;
+    return 0;
+}
