@@ -1,26 +1,56 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+bool potega(int liczba)
+{
+    int ile=0;
+    if(liczba==1)
+        return true;
+    else if(liczba%3==0)
+    {
+        while(liczba>3&&liczba%3==0)
+        {
+            liczba=liczba/3;
+        }
+        if(liczba==3)
+            return true;
+        else
+            return false;
+    }
+    else
+        return false;
+}
+int silnia(int liczba)
+{
+    int silnia=1;
+    for(int i=2; i<=liczba; i++)
+        silnia=silnia*i;
+    return silnia;
+}
+int suma_silni(int liczba)
+{
+    int cyfra,suma=0;
+    while(liczba!=0)
+    {
+        cyfra=liczba%10;
+        suma=suma+silnia(cyfra);
+        liczba=liczba/10;
+    }
+    return suma;
+}
 int main()
 {
-    int liczba,ile=0,tmp;
-    ifstream wczytaj("liczby.txt");
+    int liczba,ile=0;
+    ifstream wczytaj("przyklad.txt");
     ofstream wypisz("wyniki4.txt");
+    wypisz<<"Zadanie 4.2:"<<endl;
     for(int i=0; i<500; i++)
     {
         wczytaj>>liczba;
-        if(liczba==1)
+        if(potega(liczba)==true)
             ile++;
-        if(liczba%3==0)
-        {
-            tmp=liczba;
-            while(tmp>3&&tmp%3==0)
-            {
-                tmp=tmp/3;
-            }
-            if(tmp==3)
-                ile++;
-        }
+        if(suma_silni(liczba)==liczba)
+            wypisz<<liczba<<endl;
     }
     wypisz<<"Zadanie 4.1:"<<endl<<ile<<endl;
     return 0;
