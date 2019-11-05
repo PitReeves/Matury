@@ -38,6 +38,17 @@ int suma_silni(int liczba)
     }
     return suma;
 }
+int nwd(int liczba1,int liczba2)
+{
+    while(liczba1!=liczba2)
+    {
+        if(liczba1>liczba2)
+            liczba1=liczba1-liczba2;
+        else
+            liczba2=liczba2-liczba1;
+    }
+    return liczba1;
+}
 int main()
 {
     int liczba,ile=0;
@@ -55,3 +66,4 @@ int main()
     wypisz<<"Zadanie 4.1:"<<endl<<ile<<endl;
     return 0;
 }
+
