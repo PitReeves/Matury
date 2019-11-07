@@ -51,45 +51,45 @@ int NWD(int liczba1,int liczba2)
 }
 int main()
 {
-    int ile=0;
-    long int liczby[500];
-    long int nwd_max=0, pierwsza_max=0, dlugosc_max=0, N=500;
+    long int tablica[500];
+    int ile=0,N=500;
+    long int pierwsza_max=0,dlugosc_max=0,nwd_max=0;
     ifstream wczytaj("liczby.txt");
     ofstream wypisz("wyniki4.txt");
     wypisz<<"Zadanie 4.2:"<<endl;
     for(int i=0; i<500; i++)
     {
-        wczytaj>>liczby[i];
-        if(potega(liczby[i])==true)
+        wczytaj>>tablica[i];
+        if(potega(tablica[i])==true)
             ile++;
-        if(suma_silni(liczby[i])==liczby[i])
-            wypisz<<liczby[i]<<endl;
+        if(suma_silni(tablica[i])==tablica[i])
+            wypisz<<tablica[i]<<endl;
     }
-    for(int j=0; j<N-1; j++)
+    for(int i=0; i<N-1; i++)
     {
+        int pierwsza=tablica[i];
         int dlugosc=1;
-        int pierwsza=liczby[j];
-        long int nwd=liczby[j];
-        for(int i=j+1; i<N; i++)
+        long int nwd=tablica[i];
+        for(int j=i+1; j<N; j++)
         {
-            long int n=NWD(nwd, liczby[i]);
+            long int n=NWD(nwd,tablica[j]);
             if(n>1)
             {
                 nwd=n;
                 dlugosc+=1;
             }
-            if(n==1 || i==N-1)
+            if(n==1||j==N-1)
             {
                 if(dlugosc_max<dlugosc)
                 {
-                    nwd_max=nwd;
-                    dlugosc_max=dlugosc;
                     pierwsza_max=pierwsza;
+                    dlugosc_max=dlugosc;
+                    nwd_max=nwd;
                 }
                 break;
             }
         }
     }
-    wypisz<<"Zadanie 4.1:"<<endl<<ile<<endl<<"Zadanie 4.3:"<<endl<<"Pierwsza liczba ciagu: "<<pierwsza_max<<endl<<"Dlugosc ciagu: "<<dlugosc_max<<endl<<"Najwiekszy wspolny dzielnik: "<<nwd_max;
+    wypisz<<"Zadanie 4.1:"<<endl<<ile<<endl<<"Zadanie 4.3:"<<endl<<"pierwsza liczba ciagu "<<pierwsza_max<<", dlugosc "<<dlugosc_max<<", najwiekszy wspolny dzielnik "<<nwd_max;
     return 0;
 }
