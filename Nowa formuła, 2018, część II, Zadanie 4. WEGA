@@ -1,17 +1,51 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+string sortowanie(string sygnal)
+{
+    char tmp;
+    for(int i=0; i<sygnal.size(); i++)
+    {
+        for(int j=0; j<sygnal.size()-1; j++)
+        {
+            if(sygnal[j]>sygnal[j+1])
+            {
+                tmp=sygnal[j];
+                sygnal[j]=sygnal[j+1];
+                sygnal[j+1]=tmp;
+            }
+        }
+    }
+    return sygnal;
+}
+int ile(string posortowany)
+{
+    int licz=1;
+    for(int i=0; i<posortowany.size()-1; i++)
+    {
+        if(posortowany[i]!=posortowany[i+1])
+            licz++;
+    }
+    return licz;
+}
 int main()
 {
-    string sygnal;
+    string sygnal, slowo;
+    int licz=1;
     ifstream wczytaj("przyklad.txt");
     ofstream wypisz("wyniki4.txt");
-    wypisz<<"Zadanie 4.1."<<endl;
+    wypisz<<"Zadanie 4.1. "<<endl;
     for(int i=1; i<=1000; i++)
     {
         wczytaj>>sygnal;
         if(i%40==0)
             wypisz<<sygnal[9];
+        if(licz<ile(sortowanie(sygnal)))
+        {
+            slowo=sygnal;
+            licz=ile(sortowanie(sygnal));
+        }
     }
+    wypisz<<endl<<"Zadanie 4.2. "<<endl<<slowo<<" "<<licz<<endl;
     return 0;
 }
