@@ -29,7 +29,7 @@ int silnia(int liczba)
 }
 int suma_silni(int liczba)
 {
-    int cyfra,suma=0;
+    int cyfra, suma=0;
     while(liczba!=0)
     {
         cyfra=liczba%10;
@@ -38,7 +38,7 @@ int suma_silni(int liczba)
     }
     return suma;
 }
-int NWD(int liczba1,int liczba2)
+int NWD(int liczba1, int liczba2)
 {
     while(liczba1!=liczba2)
     {
@@ -52,8 +52,8 @@ int NWD(int liczba1,int liczba2)
 int main()
 {
     long int tablica[500];
-    int ile=0,N=500;
-    long int pierwsza_max=0,dlugosc_max=0,nwd_max=0;
+    int ile=0, N=500;
+    long int pierwsza_max=0, dlugosc_max=0, nwd_max=0;
     ifstream wczytaj("liczby.txt");
     ofstream wypisz("wyniki4.txt");
     wypisz<<"Zadanie 4.2."<<endl;
