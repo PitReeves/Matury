@@ -46,6 +46,6 @@ int main()
             licz=ile(sortowanie(sygnal));
         }
     }
-    wypisz<<endl<<"Zadanie 4.2. "<<endl<<slowo<<" "<<licz<<endl;
+    wypisz<<endl<<"Zadanie 4.2. "<<endl<<slowo<<" "<<licz;
     return 0;
 }
