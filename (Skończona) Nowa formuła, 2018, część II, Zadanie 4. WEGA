@@ -48,7 +48,7 @@ int main()
     int licz=1;
     ifstream wczytaj("sygnaly.txt");
     ofstream wypisz("wyniki4.txt");
-    wypisz<<"Zadanie 4.1. "<<endl;
+    wypisz<<"Zadanie 4.1."<<endl;
     for(int i=1; i<=1000; i++)
     {
         wczytaj>>sygnal;
@@ -62,6 +62,6 @@ int main()
         if(odleglosc(sygnal)==true)
             cout<<sygnal<<endl;
     }
-    wypisz<<endl<<"Zadanie 4.2. "<<endl<<slowo<<" "<<licz<<endl<<"Zadanie 4.3."<<endl;
+    wypisz<<endl<<"Zadanie 4.2."<<endl<<slowo<<" "<<licz<<endl<<"Zadanie 4.3."<<endl;
     return 0;
 }
