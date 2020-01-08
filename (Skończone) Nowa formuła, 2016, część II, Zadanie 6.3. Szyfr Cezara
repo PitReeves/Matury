@@ -1,0 +1,45 @@
+#include <iostream>
+#include <fstream>
+#include <cmath>
+using namespace std;
+bool blad(string slowo, string szyfrogram)
+{
+    int ascii, klucz=abs(slowo[0]-szyfrogram[0]);
+    bool czy=false;
+    for(int i=1; i<slowo.size(); i++)
+    {
+        ascii=slowo[i]+klucz;
+        if(ascii>90)
+        {
+            ascii=65+(ascii-91);
+            if(ascii!=szyfrogram[i])
+            {
+                czy=true;
+                break;
+            }
+        }
+        else
+        {
+            if(ascii!=szyfrogram[i])
+            {
+                czy=true;
+                break;
+            }
+        }
+    }
+    return czy;
+}
+int main()
+{
+    string slowo, szyfrogram;
+    ifstream wczytaj("dane_6_3.txt");
+    ofstream wypisz("wyniki_6_3.txt");
+    for(int i=0; i<3000; i++)
+    {
+        wczytaj>>slowo;
+        wczytaj>>szyfrogram;
+        if(blad(slowo, szyfrogram)==true)
+            wypisz<<slowo<<" "<<szyfrogram<<endl;
+    }
+    return 0;
+}
