@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
-string szyfrowanie(string szyfrogram, int klucz)
+string deszyfrowanie(string szyfrogram, int klucz)
 {
     int ascii;
     klucz=klucz%26;
@@ -25,7 +25,7 @@ int main()
     {
         wczytaj>>szyfrogram[i];
         wczytaj>>klucz[i];
-        wypisz<<szyfrowanie(szyfrogram[i], klucz[i])<<endl;
+        wypisz<<deszyfrowanie(szyfrogram[i], klucz[i])<<endl;
     }
     return 0;
 }
