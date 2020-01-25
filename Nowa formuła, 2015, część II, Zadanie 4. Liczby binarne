@@ -38,8 +38,8 @@ bool osiem(string liczba)
 }
 int main()
 {
-    string liczba;
-    int ile=0, licz1=0, licz2=0;
+    string liczba, najmniejsza="11010100111", najwieksza="11010100111";
+    int ile=0, licz_1=0, licz_2=0, pozycja_1, pozycja_2;
     ifstream wczytaj("liczby.txt");
     ofstream wypisz("wynik4.txt");
     for(int i=0; i<1000; i++)
@@ -48,10 +48,44 @@ int main()
         if(wiecej(liczba)==true)
             ile++;
         if(dwa(liczba)==true)
-            licz1++;
+            licz_1++;
         if(osiem(liczba)==true)
-            licz2++;
+            licz_2++;
+        if(najmniejsza.size()>liczba.size())
+        {
+            najmniejsza=liczba;
+            pozycja_1=i;
+        }
+        else if(najmniejsza.size()==liczba.size())
+        {
+            for(int j=liczba.size()-1; j>=0; j--)
+            {
+                if(najmniejsza[j]>liczba[j])
+                {
+                    najmniejsza=liczba;
+                    pozycja_1=i;
+                    break;
+                }
+            }
+        }
+        if(najwieksza.size()<liczba.size())
+        {
+            najwieksza=liczba;
+            pozycja_2=i;
+        }
+        else if(najwieksza.size()==liczba.size())
+        {
+            for(int j=liczba.size()-1; j>=0; j--)
+            {
+                if(najwieksza[j]<liczba[j])
+                {
+                    najwieksza=liczba;
+                    pozycja_2=i;
+                    break;
+                }
+            }
+        }
     }
-    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz1<<" - liczba liczb podzielnych przez 2."<<endl<<licz2<<" - liczba liczb podzielnych przez 8."<<endl;
+    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz_1<<" - liczba liczb podzielnych przez 2."<<endl<<licz_2<<" - liczba liczb podzielnych przez 8."<<endl<<"Zadanie 4.3."<<endl<<pozycja_1<<endl<<pozycja_2;
     return 0;
 }
