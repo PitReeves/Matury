@@ -16,10 +16,30 @@ bool wiecej(string liczba)
     else
         return false;
 }
+bool dwa(string liczba)
+{
+    bool czy=false;
+    if(liczba[liczba.size()-1]=='0')
+        czy=true;
+    return czy;
+}
+bool osiem(string liczba)
+{
+    bool czy=true;
+    for(int i=liczba.size()-3; i<liczba.size(); i++)
+    {
+        if(liczba[i]!='0')
+        {
+            czy=false;
+            break;
+        }
+    }
+    return czy;
+}
 int main()
 {
     string liczba;
-    int ile=0;
+    int ile=0, licz1=0, licz2=0;
     ifstream wczytaj("liczby.txt");
     ofstream wypisz("wynik4.txt");
     for(int i=0; i<1000; i++)
@@ -27,7 +47,11 @@ int main()
         wczytaj>>liczba;
         if(wiecej(liczba)==true)
             ile++;
+        if(dwa(liczba)==true)
+            licz1++;
+        if(osiem(liczba)==true)
+            licz2++;
     }
-    cout<<"Zadanie 4.1."<<endl<<ile<<endl;
+    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz1<<" - liczba liczb podzielnych przez 2."<<endl<<licz2<<" - liczba liczb podzielnych przez 8."<<endl;
     return 0;
 }
