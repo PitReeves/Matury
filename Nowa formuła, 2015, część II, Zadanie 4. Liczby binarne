@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+bool wiecej(string liczba)
+{
+    int zera=0, jedynki=0;
+    for(int i=0; i<liczba.size(); i++)
+    {
+        if(liczba[i]=='0')
+            zera++;
+        else
+            jedynki++;
+    }
+    if(zera>jedynki)
+        return true;
+    else
+        return false;
+}
+int main()
+{
+    string liczba;
+    int ile=0;
+    ifstream wczytaj("liczby.txt");
+    ofstream wypisz("wynik4.txt");
+    for(int i=0; i<1000; i++)
+    {
+        wczytaj>>liczba;
+        if(wiecej(liczba)==true)
+            ile++;
+    }
+    cout<<"Zadanie 4.1."<<endl<<ile<<endl;
+    return 0;
+}
