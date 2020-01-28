@@ -4,10 +4,12 @@
 using namespace std;
 bool blad(string slowo, string szyfrogram)
 {
-    int ascii, klucz=abs(slowo[0]-szyfrogram[0]);
+    int ascii, klucz;
     bool czy=false;
-    if(slowo[0]+klucz>90)
+    if(slowo[0]>szyfrogram[0])
         klucz=szyfrogram[0]-64+90-slowo[0];
+    else
+        klucz=szyfrogram[0]-slowo[0];
     for(int i=1; i<slowo.size(); i++)
     {
         ascii=slowo[i]+klucz;
