@@ -39,10 +39,10 @@ bool osiem(string liczba)
 int main()
 {
     string liczba, liczba_min="11010100111", liczba_max="11010100111";
-    int ile=0, licz_1=0, licz_2=0, dlugosc_min, dlugosc_max;
+    int ile=0, licz_1=0, licz_2=0, pozycja_min, pozycja_max;
     ifstream wczytaj("liczby.txt");
     ofstream wypisz("wynik4.txt");
-    for(int i=0; i<1000; i++)
+    for(int i=1; i<=1000; i++)
     {
         wczytaj>>liczba;
         if(wiecej(liczba)==true)
@@ -51,44 +51,11 @@ int main()
             licz_1++;
         if(osiem(liczba)==true)
             licz_2++;
-//        if(najmniejsza.size()>liczba.size())
-//        {
-//            najmniejsza=liczba;
-//            pozycja_1=i;
-//        }
-//        else if(najmniejsza.size()==liczba.size())
-//        {
-//            for(int j=liczba.size()-1; j>=0; j--)
-//            {
-//                if(najmniejsza[j]>liczba[j])
-//                {
-//                    najmniejsza=liczba;
-//                    pozycja_1=i;
-//                    break;
-//                }
-//            }
-//        }
-//        if(najwieksza.size()<liczba.size())
-//        {
-//            najwieksza=liczba;
-//            pozycja_2=i;
-//        }
-//        else if(najwieksza.size()==liczba.size())
-//        {
-//            for(int j=liczba.size()-1; j>=0; j--)
-//            {
-//                if(najwieksza[j]<liczba[j])
-//                {
-//                    najwieksza=liczba;
-//                    pozycja_2=i;
-//                    break;
-//                }
-//            }
-//        }
         if(liczba.size()<liczba_min.size())
+        {
             liczba_min=liczba;
-        if(liczba.size()>liczba_max.size())
-            liczba_max=liczba;
+            pozycja_min=i;
+        }
         if(liczba.size()==liczba_min.size())
         {
             for(int j=1; j<liczba.size(); j++)
@@ -96,13 +63,29 @@ int main()
                 if(liczba[j]<liczba_min[j])
                 {
                     liczba_min=liczba;
-                    dlugosc_min=i;
+                    pozycja_min=i;
+                    break;
+                }
+            }
+        }
+        if(liczba.size()>liczba_max.size())
+        {
+            liczba_max=liczba;
+            pozycja_max=i;
+        }
+        if(liczba.size()==liczba_max.size())
+        {
+            for(int j=1; j<liczba.size(); j++)
+            {
+                if(liczba[j]>liczba_max[j])
+                {
+                    liczba_max=liczba;
+                    pozycja_max=i;
                     break;
                 }
             }
         }
     }
-    cout<<dlugosc_min;
-    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz_1<<" - liczba liczb podzielnych przez 2."<<endl<<licz_2<<" - liczba liczb podzielnych przez 8."<<endl;
+    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz_1<<" - liczba liczb podzielnych przez 2."<<endl<<licz_2<<" - liczba liczb podzielnych przez 8."<<endl<<"Zadanie 4.3"<<endl<<pozycja_min<<" - numer wiersza zawierającego minimalna liczbe."<<endl<<pozycja_max<<" - numer wiersza zawierającego maksymalna liczbe."<<endl;
     return 0;
 }
