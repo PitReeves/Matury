@@ -39,7 +39,7 @@ bool osiem(string liczba)
 int main()
 {
     string liczba, liczba_min="11010100111", liczba_max="11010100111";
-    int ile=0, licz_1=0, licz_2=0, dlugosc_max;
+    int ile=0, licz_1=0, licz_2=0, dlugosc_min, dlugosc_max;
     ifstream wczytaj("liczby.txt");
     ofstream wypisz("wynik4.txt");
     for(int i=0; i<1000; i++)
@@ -89,7 +89,20 @@ int main()
             liczba_min=liczba;
         if(liczba.size()>liczba_max.size())
             liczba_max=liczba;
+        if(liczba.size()==liczba_min.size())
+        {
+            for(int j=1; j<liczba.size(); j++)
+            {
+                if(liczba[j]<liczba_min[j])
+                {
+                    liczba_min=liczba;
+                    dlugosc_min=i;
+                    break;
+                }
+            }
+        }
     }
+    cout<<dlugosc_min;
     wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz_1<<" - liczba liczb podzielnych przez 2."<<endl<<licz_2<<" - liczba liczb podzielnych przez 8."<<endl;
     return 0;
 }
