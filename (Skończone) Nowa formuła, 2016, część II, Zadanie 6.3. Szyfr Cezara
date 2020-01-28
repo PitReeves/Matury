@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <cmath>
 using namespace std;
 bool blad(string slowo, string szyfrogram)
 {
@@ -38,12 +37,13 @@ int main()
     string slowo, szyfrogram;
     ifstream wczytaj("dane_6_3.txt");
     ofstream wypisz("wyniki_6_3.txt");
+    wypisz<<"Zadanie 6.3."<<endl;
     for(int i=0; i<3000; i++)
     {
         wczytaj>>slowo;
         wczytaj>>szyfrogram;
         if(blad(slowo, szyfrogram)==true)
-            wypisz<<slowo<<" "<<szyfrogram<<endl;
+            wypisz<<slowo<<endl;
     }
     return 0;
 }
