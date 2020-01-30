@@ -3,20 +3,29 @@
 using namespace std;
 int main()
 {
-    int piksel, najjasniejszy=0, najciemniejszy=225;
+    int piksel[200][320];
+    int najjasniejszy=0, najciemniejszy=225, licz=0;
     ifstream wczytaj("przyklad.txt");
     ofstream wypisz("wyniki6.txt");
     for(int i=0; i<200; i++)
     {
         for(int j=0; j<320; j++)
         {
-            wczytaj>>piksel;
-            if(piksel>najjasniejszy)
-                najjasniejszy=piksel;
-            if(piksel<najciemniejszy)
-                najciemniejszy=piksel;
+            wczytaj>>piksel[i][j];
+            if(piksel[i][j]>najjasniejszy)
+                najjasniejszy=piksel[i][j];
+            if(piksel[i][j]<najciemniejszy)
+                najciemniejszy=piksel[i][j];
+        }
+        for(int j=0; j<160; j++)
+        {
+            if(piksel[i][j]!=piksel[i][319-j])
+            {
+                licz++;
+                break;
+            }
         }
     }
-    wypisz<<"Zadanie 6.1."<<endl<<najjasniejszy<<" (najjasniejszy) i "<<najciemniejszy<<" (najciemniejszy)";
+    wypisz<<"Zadanie 6.1."<<endl<<najjasniejszy<<" (najjasniejszy) i "<<najciemniejszy<<" (najciemniejszy)"<<endl<<"Zadanie 6.2."<<endl<<licz<<endl;
     return 0;
 }
