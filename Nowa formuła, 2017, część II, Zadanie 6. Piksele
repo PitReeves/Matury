@@ -3,29 +3,36 @@
 using namespace std;
 int main()
 {
-    int piksel[200][320];
-    int najjasniejszy=0, najciemniejszy=225, licz=0;
+    int piksele[200][320];
+    int najjasniejszy=0, najciemniejszy=225, licz=0, k=1, linia=1;
     ifstream wczytaj("przyklad.txt");
     ofstream wypisz("wyniki6.txt");
     for(int i=0; i<200; i++)
     {
         for(int j=0; j<320; j++)
         {
-            wczytaj>>piksel[i][j];
-            if(piksel[i][j]>najjasniejszy)
-                najjasniejszy=piksel[i][j];
-            if(piksel[i][j]<najciemniejszy)
-                najciemniejszy=piksel[i][j];
+            wczytaj>>piksele[i][j];
+            if(piksele[i][j]>najjasniejszy)
+                najjasniejszy=piksele[i][j];
+            if(piksele[i][j]<najciemniejszy)
+                najciemniejszy=piksele[i][j];
         }
         for(int j=0; j<160; j++)
         {
-            if(piksel[i][j]!=piksel[i][319-j])
+            if(piksele[i][j]!=piksele[i][319-j])
             {
                 licz++;
                 break;
             }
         }
     }
-    wypisz<<"Zadanie 6.1."<<endl<<najjasniejszy<<" (najjasniejszy) i "<<najciemniejszy<<" (najciemniejszy)"<<endl<<"Zadanie 6.2."<<endl<<licz<<endl;
+    for(int i=0; i<320; i++)
+    {
+        while(piksele[k][i]==piksele[k+1][i])
+            k++;
+        if(k>linia)
+            linia=k;
+    }
+    wypisz<<"Zadanie 6.1."<<endl<<najjasniejszy<<" (najjasniejszy) i "<<najciemniejszy<<" (najciemniejszy)"<<endl<<"Zadanie 6.2."<<endl<<licz<<endl<<"Zadanie 6.4."<<endl<<linia<<endl;
     return 0;
 }
