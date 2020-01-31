@@ -78,14 +78,21 @@ int main()
             }
         }
     }
-    for(int i=0; i<320; i++)
+        for(int i=0; i<20; i++)
     {
-        k=1;
-        while(piksele[k][i]==piksele[k+1][i])
-            k++;
-        if(k>linia)
-            linia=k;
-    }
+        for(int j=0; j<32; j++)
+        {
+            cout<< i<<","<<j<<" ";
+//            if(piksele[i][j]==piksele[i][j-1])
+//                linia++;
+//            else
+//            {
+//                if(linia>linia_max)
+//                    linia_max=linia;
+//                linia=1;
+//            }
+        }
+        cout<<endl;
     wypisz<<"Zadanie 6.1."<<endl<<najjasniejszy<<" (najjasniejszy) i "<<najciemniejszy<<" (najciemniejszy)"<<endl<<"Zadanie 6.2."<<endl<<licz<<endl<<"Zadanie 6.3."<<endl<<kontrast<<endl<<"Zadanie 6.4."<<endl<<linia<<endl;
     return 0;
 }
