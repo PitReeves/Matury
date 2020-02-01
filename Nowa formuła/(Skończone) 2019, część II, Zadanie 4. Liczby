@@ -90,6 +90,6 @@ int main()
             }
         }
     }
-    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.3."<<endl<<"pierwsza liczba ciagu "<<pierwsza_max<<", dlugosc "<<dlugosc_max<<", najwiekszy wspolny dzielnik "<<nwd_max;
+    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.3."<<endl<<pierwsza_max<<" (pierwsza liczba ciagu), "<<dlugosc_max<<" (dlugosc ciagu), "<<nwd_max<<" (najwiekszy wspolny dzielnik)"<<endl;
     return 0;
 }
