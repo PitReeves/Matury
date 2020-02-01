@@ -85,6 +85,6 @@ int main()
             pozycja_max=i;
         }
     }
-    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz_1<<" - liczba liczb podzielnych przez 2."<<endl<<licz_2<<" - liczba liczb podzielnych przez 8."<<endl<<"Zadanie 4.3"<<endl<<pozycja_min<<" - numer wiersza zawieraj¹cego minimalna liczbe."<<endl<<pozycja_max<<" - numer wiersza zawieraj¹cego maksymalna liczbe."<<endl;
+    wypisz<<"Zadanie 4.1."<<endl<<ile<<endl<<"Zadanie 4.2."<<endl<<licz_1<<" - liczba liczb podzielnych przez 2."<<endl<<licz_2<<" - liczba liczb podzielnych przez 8."<<endl<<"Zadanie 4.3"<<endl<<pozycja_min<<" - numer wiersza zawierajacego minimalna liczbe."<<endl<<pozycja_max<<" - numer wiersza zawierajacego maksymalna liczbe."<<endl;
     return 0;
 }
